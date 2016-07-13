@@ -1,0 +1,143 @@
+//public gradient function.
+@mixin normalGradient($type, $direction, $startColor, $endColor) {
+  background-image: -moz-#{$type}-gradient($direction, #{$startColor}, #{$endColor});// for Firefox.
+  background-image: -webkit-#{$type}-gradient($direction,#{$startColor}, #{$endColor});// for new chrome.
+  
+  @if $direction == top {
+   background-image: -webkit-gradient(#{$type}, $direction, bottom, from(#{$startColor}), to(#{$endColor}));// for old chrome.
+  } @else if $direction == left {
+    background-image: -webkit-gradient(#{$type}, $direction, right, from(#{$startColor}), to(#{$endColor}));// for old chrome.
+  }
+  
+  background-image: -o-#{$type}-gradient($direction, #{$startColor}, #{$endColor});// for opera.
+  background-image: -ms-#{$type}-gradient($direction, #{$startColor}, #{$endColor});// IE 10+.
+  
+  @if $type == linear {
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$startColor}, endColorstr=#{$endColor});// IE 9-.
+  } @else if $type == radial {
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#{$startColor}, endColorstr=#{$endColor});// IE 9-.
+  }
+}
+
+@mixin boxShadow($boxShadow) {
+	box-shadow: $boxShadow;
+}
+
+@mixin transition($duration) {
+	transition: #{$duration}s;
+	-moz-transition: #{$duration}s;
+	-webkit-transition: #{$duration}s;
+	-o-transition: #{$duration}s;
+}
+
+@mixin transform($angle) {
+	transform: rotate(#{$angle}deg);
+	-webkit-transform: rotate(#{$angle}deg);
+	-moz-transform: rotate(#{$angle}deg);
+	-ms-transform: rotate(#{$angle}deg);
+	-o-transform: rotate(#{$angle}deg);
+}
+
+$img-prefix: '../../';
+
+%float-left {
+	float: left;
+}
+
+ %float-right {
+ 	float: right;
+}
+
+%relative {
+	position: relative;
+}
+
+%absolute {
+	position: absolute;
+}
+
+%text-align {
+	text-align: center;
+}
+
+%font-twelve {
+	font-size: 12px;
+}
+
+%font-thirteen {
+	font-size: 13px;
+}
+
+%font-fourteen {
+	font-size: 14px;
+}
+
+%font-fifteen {
+	font-size: 15px;
+}
+
+%font-sixteen {
+	font-size: 16px;
+}
+
+%font-seventeen {
+	font-size: 17px;
+}
+
+%font-eighteen {
+	font-size: 18px;
+}
+
+%font-ninteen {
+	font-size: 19px;
+}
+
+%font-twenty {
+	font-size: 20px;
+}
+
+%font-twenty-one {
+	font-size: 21px;
+}
+
+%font-twenty-two {
+	font-size: 22px;
+}
+
+%font-twenty-three {
+	font-size: 23px;
+}
+
+%font-twenty-four {
+	font-size: 24px;
+}
+
+%font-twenty-five {
+	font-size: 25px;
+}
+
+%font-normal {
+	font-weight: normal;
+}
+
+%font-weight {
+	font-weight: bold;
+}
+
+%font-arial {
+	font-family: Arial;
+}
+
+%font-yahei {
+	font-family: Microsoft Yahei;
+}
+
+%radiu {
+	border-radius: 5px;
+}
+
+%single-line-ellipsis {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
