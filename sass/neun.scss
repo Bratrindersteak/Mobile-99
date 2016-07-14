@@ -7,26 +7,6 @@ body {
 	@extend %relative;
 }
 
-%colorfff {
-	color: #fff;
-}
-
-%color000 {
-	color: #000;
-}
-
-%color333 {
-	color: #333;
-}
-
-%color666 {
-	color: #666;
-}
-
-%color999 {
-	color: #999;
-}
-
 .alpha {
 	position: absolute;
     top: 0;
@@ -37,4 +17,19 @@ body {
     z-index: 10;
 }
 
+.image {
+	position: relative;
+	font-size: 0;
+
+	&:after {
+		content: '';
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		@extend %absolute;
+	}
+}
+
+@import "headerUndFooter.scss";
 @import "homePage.scss";

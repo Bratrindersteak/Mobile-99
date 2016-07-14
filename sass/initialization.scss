@@ -38,6 +38,14 @@
 	-o-transform: rotate(#{$angle}deg);
 }
 
+@mixin multiRowEllipsis($line) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: #{$line};
+	-webkit-box-orient: vertical;
+}
+
 $img-prefix: '../../';
 
 %float-left {
@@ -46,6 +54,22 @@ $img-prefix: '../../';
 
  %float-right {
  	float: right;
+}
+
+%flex-box {
+	overflow: hidden;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+%flex-elements-none {
+	flex: none;
+	align-self: center;
+}
+
+%flex-elements-auto {
+	flex: auto;
+	align-self: center;
 }
 
 %relative {
@@ -120,7 +144,7 @@ $img-prefix: '../../';
 	font-weight: normal;
 }
 
-%font-weight {
+%font-bold {
 	font-weight: bold;
 }
 
@@ -128,16 +152,45 @@ $img-prefix: '../../';
 	font-family: Arial;
 }
 
-%font-yahei {
-	font-family: Microsoft Yahei;
+%font-STXihei {
+	font-family: STXihei;
+}
+
+%bkgfff {
+	background-color: #fff;
+}
+
+%colorfff {
+	color: #fff;
+}
+
+%color000 {
+	color: #000;
+}
+
+%color333 {
+	color: #333;
+}
+
+%color666 {
+	color: #666;
+}
+
+%color999 {
+	color: #999;
 }
 
 %radiu {
 	border-radius: 5px;
 }
 
-%single-line-ellipsis {
+%single-row-ellipsis {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
+}
+
+%box-sizing {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
 }

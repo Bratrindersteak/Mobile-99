@@ -1,6 +1,6 @@
 // global variable
 %fontFamily {
-	font-family: Microsoft Yahei, sans-serif;
+	font-family: PingFang SC Medium, Microsoft Yahei;
 }
 
 %no-margin {
@@ -47,6 +47,7 @@
 
 // meine reset css
 body {
+	@extend %fontFamily;
 	@extend %no-margin;
 }
 
@@ -66,6 +67,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
 input[type=text], textarea, input[type=submit], input[type=button], button {
 	outline: none;
+	@extend %fontFamily;
 	@extend %no-padding;
 	@extend %no-border;
 	@extend %webkit-appearance;
