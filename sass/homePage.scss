@@ -95,25 +95,31 @@
 	}
 }
 
-#hpRush {
-	@extend %bkgfff;
-}
 .hp-rush {
-	width: 93%;
-	margin: 11px auto 12px;
-	padding-bottom: 10px;
+	width: 94%;
+	margin: 2px 0 12px;
+	padding: 11px 3% 23px;
 	z-index: 0;
 	@extend %relative;
+	@extend %bkgfff;
 
 	&:after {
 		content: '';
-		top: 10px;
-		left: 0;
-		width: 100%;
-		height: 96%;
+		top: 21px;
+		left: 3%;
+		width: 94%;
+		height: 86%;
 		z-index: -1;
 		@include normalGradient(linear, top, #3752bb, #7375e4);
 		@extend %absolute;
+	}
+
+	@media screen and (min-width:599px) {
+		padding: 11px 3% 26px;
+
+		&:after {
+			height: 91%;
+		}
 	}
 
 	.up {
@@ -322,6 +328,10 @@
 			color: #a4a4a4;
 			text-decoration: line-through;
 			@extend %font-twelve;
+
+			i {
+				@extend %font-eleven;
+			}
 		}
 	}
 
@@ -527,26 +537,19 @@
 }
 
 .hp-brand-lists {
+	padding-bottom: 16px;
 	@extend %flex-box;
 	@extend %bkgfff;
 
 	li {
 		width: 25%;
-		height: 72px;
+		height: 76px;
+		margin-top: 6px;
 		@extend %relative;
 		@extend %flex-elements-none;
 		@extend %float-left;
 		@extend %text-align;
 		@extend %font-thirteen;
-
-		&:after {
-			content: '';
-			top: 0;
-			right: 0;
-			width: 100%;
-			height: 50px;
-			@extend %absolute;
-		}
 
 		a {
 			display: block;
@@ -558,7 +561,53 @@
 		span {
 			display: inline-block;
 			height: 18px;
-			margin-top: 54px;
+			margin-top: 58px;
+		}
+	}
+
+	.brand {
+		&:after {
+			content: '';
+			top: 0;
+			left: 50%;
+			width: 50px;
+			height: 50px;
+			margin-left: -25px;
+			@extend %absolute;
+		}
+	}
+
+	@for $i from 1 through 7 {
+		.brand-#{$i} {
+			&:after {
+				background: url(../images/brand-logo-M99.png) no-repeat;
+				background-size: 50px 500px;
+				background-position: 0 ( $i - 1 ) * -50 + px;
+			}
+		}
+	}
+
+	.more {
+		&:before {
+			content: '';
+			top: 24px;
+			left: 50%;
+			width: 22px;
+			height: 2px;
+			margin-left: -12px;
+			background-color: #bebebe;
+			@extend %absolute;
+		}
+
+		&:after {
+			content: '';
+			top: 14px;
+			left: 50px;
+			width: 2px;
+			height: 22px;
+			margin-left: -1px;
+			background-color: #bebebe;
+			@extend %absolute;
 		}
 	}
 }
@@ -614,12 +663,12 @@
 
 		.services {
 			@extend %float-left;
-			@extend %font-twelve;
+			@extend %font-ten;
 
 			span {
 				display: inline-block;
 				height: 18px;
-				line-height: 18px;
+				line-height: 16px;
 				margin-top: 2px;
 				padding: 0 3px;
 				border-radius: 2px;
@@ -704,6 +753,7 @@
 }
 
 .hp-solution-lists {
+	margin-bottom: 13px;
 	@extend %bkgfff;
 
 	li {
@@ -797,14 +847,14 @@
 			border: 1px solid #646464;
 			@extend %float-right;
 			@extend %text-align;
-			@extend %font-twelve;
+			@extend %font-ten;
 			@extend %box-sizing;
 		}
 
 		.question-info {
 			padding-bottom: 12px;
 			color: #bebebe;
-			@extend %font-twelve;
+			@extend %font-ten;
 		}
 
 		.area {

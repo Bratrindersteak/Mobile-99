@@ -44,17 +44,49 @@ header {
 }
 
 footer {
+	padding-bottom: 26px;
 	@extend %text-align;
 	@extend %bkgfff;
 
 	.advantage {
+		padding: 20px 0 10px;
 		@extend %flex-box;
 
 		li {
 			width: 33.33%;
-			color: #9b9b9b;
 			@extend %flex-elements-none;
 			@extend %float-left;
+		}
+
+		.markedness {
+			color: #feab34;
+			text-shadow: 2px 2px 1px #ececec;
+			@extend %font-twenty-eight;
+			@extend %font-normal;
+
+			span {
+				@extend %relative;
+				z-index: 0;
+
+				&:after {
+					content: '';
+					top: 15px;
+					right: -20px;
+					width: 30px;
+					height: 50px;
+					z-index: -1;
+					@extend %absolute;
+					@include transform(-45);
+					@include normalGradient(linear, top, #ececec, #fefefe);
+				}
+			}
+		}
+
+		.text {
+			margin-top: 5px;
+			color: #9b9b9b;
+			z-index: 0;
+			@extend %relative;
 			@extend %font-twelve;
 		}
 	}
@@ -64,6 +96,8 @@ footer {
 
 		li {
 			width: 33.33%;
+			height: 48px;
+			line-height: 48px;
 			@extend %flex-elements-none;
 			@extend %float-left;
 			@extend %font-thirteen;
@@ -79,6 +113,7 @@ footer {
 
 	.conquer {
 		color: #bebebe;
+		@extend %font-fourteen;
 
 		a {
 			color: #eb4a4a;
