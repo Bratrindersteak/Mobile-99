@@ -88,7 +88,7 @@ body {
 	&:after {
 		content: '';
 		top: 4px;
-		right: -21px;
+		right: -12%;
 		width: 0;
 		height: 33px;
 		border-left: 1px solid #2f2f2f;
@@ -153,6 +153,12 @@ body {
 		@extend %absolute;
 	}
 
+	@media screen and (max-width:320px) {
+		& {
+			margin: 12px 7% 0 0;
+		}
+	}
+
 	.title {
 		padding-left: 2px;
 		@extend %relative;
@@ -196,8 +202,8 @@ body {
 	}
 
 	.text {
-		color: #bebebe;
 		@extend %font-twelve;
+		@extend %colorbebebe;
 	}
 }
 
