@@ -6,16 +6,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" type="text/css" href="../dist/styles/neun.css">
+	<link rel="stylesheet" type="text/css" href="../dist/styles/swiper.min.css" />
+	<link rel="stylesheet" type="text/css" href="../dist/styles/neun.css" />
+	<script type="text/javascript" src="../dist/scripts/plugins/jquery-3.0.0.min.js"></script>
+	<script type="text/javascript" src="../dist/scripts/plugins/swiper.min.js"></script>
 </head>
 <body>
 	<div class="hp-wrapper">
 		<header id="header">
 			<span class="area">北京</span>
 			<div class="image"><img src="../dist/images/logo-99.png" width="100%" /></div>
-			<div class="nav">
+			<div id="headerNav" class="nav">
 				<i></i>
-				<ul class="nav-lists">
+				<ul id="headerNavLists" class="nav-lists" style="display:none">
 					<li><a href="javascript:void(0)">首页</a></li>
 					<li><a href="javascript:void(0)">登录</a></li>
 					<li><a href="javascript:void(0)">全部车源</a></li>
@@ -25,20 +28,25 @@
 			</div>
 		</header>
 		<section id="hpBanner">
-			<div class="hp-banner">
-				<ul><li><div class="image"><img src="../dist/images/hp-banner.jpg" width="100%" /></div></li></ul>
+			<div class="hp-banner swiper-container">
+				<ul class="swiper-wrapper">
+					<li class="swiper-slide"><div class="image"><img src="../dist/images/hp-banner.jpg" width="100%" /></div></li>
+					<li class="swiper-slide"><div class="image"><img src="../dist/images/hp-banner-2.jpg" width="100%" /></div></li>
+					<li class="swiper-slide"><div class="image"><img src="../dist/images/hp-banner-3.jpg" width="100%" /></div></li>
+				</ul>
+				<div class="hp-banner-pagination swiper-pagination"></div>
 			</div>
 		</section>
 		<section id="hpSearch">
 			<div class="hp-search clear">
-				<div class="search-all"><a href="javascript:void(0)">全部车源</a></div>
-				<div class="search-form clear">
+				<div id="hpSearchAll" class="search-all"><a href="javascript:void(0)">全部车源</a></div>
+				<div id="hpSearchForm" class="search-form clear">
 					<form>
-						<div class="search-input"><input type="text" value="" maxlength="20" placeholder="请输入：如奥迪A6" /></div>
+						<div class="search-input"><input id="hpSearchInput" type="text" value="" maxlength="20" placeholder="请输入：如奥迪A6" /></div>
 						<div class="search-submit"><input type="submit" value="" /></div>
 					</form>
 				</div>
-				<ul class="search-lists">
+				<ul id="hpSearchLists" class="search-lists" style="display:none">
 					<li>
 						<a class="clear" href="javascript:void(0)">
 							<span class="series">奥迪A6L</span>
@@ -278,5 +286,41 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var hpSearchHeight = $('#hpSearch').offset().top;
+
+			var mySwiper = new Swiper ('.swiper-container', {
+				loop: true,
+				autoplay: 3000,
+				autoplayDisableOnInteraction: false,
+				effect: 'fade',
+				pagination: '.swiper-pagination'
+			});
+
+			$('#headerNav').on('click', function() {
+				if ( $('#headerNavLists').css('display') == 'none' ) {
+					$('#headerNavLists').show();
+				} else {
+					$('#headerNavLists').hide();
+				}
+			});
+
+			$('#hpSearchInput').on('focus', function() {
+				$('#hpSearchAll').fadeOut(300, function() {
+					$(window).scrollTop(hpSearchHeight);
+					$('#hpSearchForm').css('width', '100%');
+					$('#hpSearchLists').fadeIn(300);
+				});
+			});
+
+			$('#hpSearchInput').on('blur', function() {
+				$(window).scrollTop(0);
+				$('#hpSearchForm').css('width', '77.7%');
+				$('#hpSearchAll').fadeIn(300);
+				$('#hpSearchLists').fadeOut(300);
+			});
+		});
+	</script>
 </body>
 </html>

@@ -168,7 +168,7 @@ body {
 
 		i {
 			top: 3px;
-			right: 5px;
+			right: 6px;
 			width: 18px;
 			height: 18px;
 			background-color: #60dd5a;
@@ -178,10 +178,11 @@ body {
 			&:before {
 				content: '';
 				top: 4px;
-				right: 8px;
-				width: 0;
+				left: 50%;
+				width: 2px;
 				height: 7px;
-				border-right: 2px solid #535353;
+				margin-left: -1px;
+				background-color: #535353;
 				border-radius: 1px;
 				@extend %absolute;
 			}
