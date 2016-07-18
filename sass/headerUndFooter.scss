@@ -41,6 +41,92 @@ header {
 		width: 17.8%;
 		margin: 0 auto;
 	}
+
+	.nav {
+		top: 50%;
+		right: 0;
+		margin-top: -22px;
+		width: 19px;
+		height: 14px;
+		padding: 15px;
+		z-index: 10;
+		@extend %absolute;
+
+		i {
+			top: 21px;
+			left: 15px;
+			width: 19px;
+			height: 2px;
+			background-color: #eb4a4a;
+			border-radius: 2px;
+			@extend %absolute;
+
+			&:before {
+				content: '';
+				bottom: 6px;
+				left: 0;
+				width: 100%;
+				height: 2px;
+				background-color: #eb4a4a;
+				border-radius: 1px;
+				@extend %absolute;
+			}
+
+			&:after {
+				content: '';
+				top: 6px;
+				left: 0;
+				width: 100%;
+				height: 2px;
+				background-color: #eb4a4a;
+				border-radius: 2px;
+				@extend %absolute;
+			}
+		}
+	}
+
+	.nav-lists {
+		top: 38px;
+		right: 7px;
+		width: 138px;
+		background-color: rgba(51, 51, 51, 0.96);
+		@extend %absolute;
+		@extend %radiu;
+
+		&:after {
+			content: '';
+			top: -3px;
+			right: 16px;
+			width: 0;
+			height: 0;
+			border-left: 7px solid rgba(51, 51, 51, 0.96);
+			border-right: 7px solid transparent;
+			border-bottom: 13px solid transparent;
+			@extend %absolute;
+			@include transform(60);
+		}
+
+		li {
+			width: 85.5%;
+			height: 43px;
+			line-height: 43px;
+			margin: 0 auto;
+			border-top: 1px solid #535353;
+			@extend %text-align;
+			@extend %font-fourteen;
+		}
+
+		li:first-child {
+			border-top: none;
+		}
+
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			@extend %colorfff;
+		}
+	}
 }
 
 footer {
